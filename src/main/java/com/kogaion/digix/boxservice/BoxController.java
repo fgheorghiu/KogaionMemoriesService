@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -16,7 +17,17 @@ public class BoxController implements BoxControllerInterface {
     @RequestMapping("/boxes")
     @Override
     public List<Box> getDigitalBoxes() {
-        return new ArrayList<>();
+
+        Box box = new Box();
+
+        Long[] memoryIds = new Long[] {1L, 2L, 3L};
+        box.setMemoriesIds(Arrays.asList(memoryIds));
+        box.setName("faculty memories");
+
+        List<Box> sampleBoxList = new ArrayList<>();
+        sampleBoxList.add(box);
+
+        return sampleBoxList;
     }
 
     @RequestMapping("/boxes/{id}")
