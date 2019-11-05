@@ -1,4 +1,4 @@
-package com.kogaion.digix.boxservice;
+package com.kogaion.digix.box.controller;
 
 import com.kogaion.digix.entities.Box;
 import org.springframework.stereotype.Component;

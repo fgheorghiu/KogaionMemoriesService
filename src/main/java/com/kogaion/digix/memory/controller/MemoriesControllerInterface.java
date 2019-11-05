@@ -1,4 +1,4 @@
-package com.kogaion.digix.memoryservice;
+package com.kogaion.digix.memory.controller;
 
 import com.kogaion.digix.entities.Memory;
 
@@ -10,5 +10,5 @@ public interface MemoriesControllerInterface {
 
     public Memory getMemory(long id);
 
-
+    public Memory uploadMemory(Memory memory);
 }
