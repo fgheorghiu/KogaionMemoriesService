@@ -13,4 +13,6 @@ public interface MemoryRepository {
     List<Memory> findMemoriesByType(String type);
 
     Memory findMemoriesByTags(List<String> tags);
+
+    Memory saveMemory(Memory memory);
 }

@@ -1,38 +1,36 @@
 package com.kogaion.digix.memory.repository;
 
 import com.kogaion.digix.entities.Memory;
-import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
-@Component
-public class MemoryRepositoryImpl implements MemoryRepository{
+public class MemoryRepositoryFileSystem implements MemoryRepository {
 
     @Override
     public Memory findMemory(long id) {
-        return new Memory();
+
+        return null;
     }
 
     @Override
     public List<Memory> findMemoriesByType(String type) {
-        Memory memory = new Memory();
 
-        ArrayList<Memory> memories = new ArrayList<Memory>();
-        memories.add(memory);
-        memories.add(memory);
-        memories.add(memory);
-
-        return memories;
+        return null;
     }
 
     @Override
     public Memory findMemoriesByTags(List<String> tags) {
+
         return null;
     }
 
     @Override
     public Memory saveMemory(Memory memory) {
-        return null;
+
+        System.out.println("Saved to local file system");
+
+        return new Memory();
     }
+
+
 }
