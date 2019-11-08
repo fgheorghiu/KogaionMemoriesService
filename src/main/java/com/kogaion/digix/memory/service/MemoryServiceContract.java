@@ -9,4 +9,6 @@ public interface MemoryServiceContract {
     Memory uploadMemory(Memory memory);
 
     Memory findMemory(long id);
+
+    Memory saveMemory(Memory memory);
 }

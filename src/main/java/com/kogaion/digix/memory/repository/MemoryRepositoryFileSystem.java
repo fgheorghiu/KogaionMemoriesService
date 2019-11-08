@@ -1,9 +1,11 @@
 package com.kogaion.digix.memory.repository;
 
 import com.kogaion.digix.entities.Memory;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class MemoryRepositoryFileSystem implements MemoryRepository {
 
     @Override
