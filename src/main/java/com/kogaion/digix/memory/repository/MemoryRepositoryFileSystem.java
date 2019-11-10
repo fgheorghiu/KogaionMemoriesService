@@ -1,12 +1,16 @@
 package com.kogaion.digix.memory.repository;
 
 import com.kogaion.digix.entities.Memory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
 public class MemoryRepositoryFileSystem implements MemoryRepository {
+
+    @Autowired
+    MemoryRepo memoryRepo;
 
     @Override
     public Memory findMemory(long id) {
@@ -17,7 +21,7 @@ public class MemoryRepositoryFileSystem implements MemoryRepository {
     @Override
     public List<Memory> findMemoriesByType(String type) {
 
-        return null;
+        return memoryRepo.findByExtension(type);
     }
 
     @Override
@@ -29,9 +33,9 @@ public class MemoryRepositoryFileSystem implements MemoryRepository {
     @Override
     public Memory saveMemory(Memory memory) {
 
-        System.out.println("Saved to local file system");
+        //memoryRepo.save(memory);
 
-        return new Memory();
+        return memory;
     }
 
 

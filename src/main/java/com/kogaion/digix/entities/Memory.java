@@ -1,7 +1,13 @@
 package com.kogaion.digix.entities;
 
+import javax.persistence.*;
+
+@Table
+@Entity(name = "memory")
 public class Memory {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
 
     private String fileExtension;

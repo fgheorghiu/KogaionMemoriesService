@@ -3,6 +3,8 @@ package com.kogaion.digix.memory.service;
 import com.kogaion.digix.entities.Memory;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public interface MemoryServiceContract {
 
@@ -11,4 +13,6 @@ public interface MemoryServiceContract {
     Memory findMemory(long id);
 
     Memory saveMemory(Memory memory);
+
+    List<Memory> getMemoryByType(String extension);
 }

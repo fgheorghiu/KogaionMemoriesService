@@ -22,15 +22,7 @@ public class MemoriesController implements MemoriesControllerInterface {
     @Override
     public List<Memory> getMemories() {
 
-        Memory memory = new Memory();
-        memory.setFileExtension("txt");
-        memory.setId(1L);
-        memory.setOwnerId(0L);
-
-        List<Memory> sampleMemoriesList = new ArrayList<>();
-        sampleMemoriesList.add(memory);
-
-        return sampleMemoriesList;
+        return memoryService.getMemoryByType("txt");
     }
 
     @Override
