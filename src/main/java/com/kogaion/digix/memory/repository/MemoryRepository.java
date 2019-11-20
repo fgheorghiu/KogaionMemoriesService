@@ -1,18 +1,11 @@
 package com.kogaion.digix.memory.repository;
 
 import com.kogaion.digix.entities.Memory;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
+@Repository
+public interface MemoryRepository extends CrudRepository<Memory, Long> {
 
-@Component
-public interface MemoryRepository {
-
-    Memory findMemory(long id);
-
-    List<Memory> findMemoriesByType(String type);
-
-    Memory findMemoriesByTags(List<String> tags);
-
-    Memory saveMemory(Memory memory);
 }

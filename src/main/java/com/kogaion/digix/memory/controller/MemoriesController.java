@@ -1,8 +1,10 @@
 package com.kogaion.digix.memory.controller;
 
 import com.kogaion.digix.entities.Memory;
+import com.kogaion.digix.memory.service.MemoryService;
 import com.kogaion.digix.memory.service.MemoryServiceContract;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,9 +18,9 @@ import java.util.List;
 public class MemoriesController implements MemoriesControllerInterface {
 
     @Autowired
-    private MemoryServiceContract memoryService;
+    private MemoryService memoryService;
 
-    @RequestMapping("/memories")
+    @RequestMapping(value = "/memories", method = RequestMethod.GET)
     @Override
     public List<Memory> getMemories() {
 
@@ -26,7 +28,7 @@ public class MemoriesController implements MemoriesControllerInterface {
     }
 
     @Override
-    @RequestMapping("/memories/{id}")
+    @RequestMapping(value = "/memories/{id}", method = RequestMethod.GET)
     public Memory getMemory(long id) {
         return new Memory();
     }
