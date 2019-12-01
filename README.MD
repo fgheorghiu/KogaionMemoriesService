@@ -8,7 +8,7 @@ The following properties need to be set up in order to run the Memories Service:
 
 | Property | Value | Info |
 |---|---|---|
-|keycloak.auth-server-url|KEYCLOAK-HOST/auth|   |
+|keycloak.auth-server-url|keycloak-host/auth|   |
 |keycloak.realm|master|   |
 |keycloak.resource|client_id|   |
 |keycloak.public-client|true|   |
