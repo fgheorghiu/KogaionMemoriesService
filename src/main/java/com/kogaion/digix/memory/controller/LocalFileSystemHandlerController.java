@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Base64;
 
 @Component
-public class FileHandlerController implements FileHandlerInterface {
+public class LocalFileSystemHandlerController implements LocalFileSystemHandlerInterface {
 
     @Override
     public void uploadBase64File(Memory memory) {

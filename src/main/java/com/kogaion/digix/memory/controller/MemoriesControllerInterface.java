@@ -1,14 +1,17 @@
 package com.kogaion.digix.memory.controller;
 
 import com.kogaion.digix.entities.Memory;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 public interface MemoriesControllerInterface {
 
-    public List<Memory> getMemories();
+    List<Memory> getMemories();
 
-    public Memory getMemory(long id);
+    Memory getMemory(long id);
 
-    public Memory uploadMemory(Memory memory);
+    Memory uploadMemory(Memory memory);
+
+    List<Memory> getPagedMemories(int startIndex, int size);
 }

@@ -1,8 +1,7 @@
 package com.kogaion.digix.memory.service;
 
 import com.kogaion.digix.entities.Memory;
-import com.kogaion.digix.memory.controller.FileHandlerController;
-import com.kogaion.digix.memory.controller.S3Controller;
+import com.kogaion.digix.memory.controller.LocalFileSystemHandlerInterface;
 import com.kogaion.digix.memory.repository.MemoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,10 +18,8 @@ public class MemoryService implements MemoryServiceContract {
     @Autowired
     private MemoryRepository memoryRepository;
 
-    private S3Controller s3Controller;
-
     @Autowired
-    private FileHandlerController fileHandlerController;
+    private LocalFileSystemHandlerInterface fileHandlerController;
 
     @Override
     public Memory uploadMemory(Memory memory) {
@@ -30,9 +27,7 @@ public class MemoryService implements MemoryServiceContract {
         memoryRepository.save(memory);
         fileHandlerController.uploadBase64File(memory);
 
-        long id = memory.getId();
-
-        return findMemory(id);
+        return memory;
     }
 
     @Override

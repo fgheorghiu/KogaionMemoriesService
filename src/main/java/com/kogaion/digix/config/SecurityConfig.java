@@ -50,5 +50,10 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
                 .hasRole("admin-digix")
                 .anyRequest()
                 .permitAll();
+
+        http.authorizeRequests().antMatchers("/").permitAll().and()
+                .authorizeRequests().antMatchers("/console/**").permitAll();
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 }
