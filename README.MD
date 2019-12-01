@@ -1,6 +1,7 @@
-DiGiX Memories Service
+### DiGiX Memories Service
 
 keycloak-host=<your_host_for_keycloak>
+
 admin-role=<your_admin_role_in_keycloak>
 
 The following properties need to be set up in order to run the Memories Service:
