@@ -5,6 +5,7 @@ import com.kogaion.digix.memory.service.MemoryService;
 import com.kogaion.digix.memory.service.MemoryServiceContract;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -40,6 +41,20 @@ public class MemoriesController implements MemoriesControllerInterface {
     @Override
     public List<Memory> getPagedMemories(@RequestParam int startIndex, @RequestParam int size) {
         return null;
+    }
+
+    @RequestMapping(value = "/memories/user/{userId}", method = RequestMethod.GET)
+    @Override
+    public List<String> getMemoriesForUser(@PathVariable String userId) {
+
+        return memoryService.getMemoriesForUserId(userId);
+    }
+
+    @RequestMapping(value = "/memories", method = RequestMethod.DELETE)
+    @Override
+    public ResponseEntity<String> deleteMemory(@RequestBody Memory memory) {
+
+        return memoryService.deleteMemory(memory);
     }
 
 }

@@ -17,7 +17,7 @@ public class Memory {
     private String fileExtension;
 
     @Column
-    private long ownerId;
+    private String ownerId;
 
     @Transient
     private File file;
@@ -44,11 +44,11 @@ public class Memory {
         this.id = id;
     }
 
-    public long getOwnerId() {
+    public String getOwnerId() {
         return ownerId;
     }
 
-    public void setOwnerId(long ownerId) {
+    public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
     }
 

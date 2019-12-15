@@ -1,6 +1,7 @@
 package com.kogaion.digix.memory.service;
 
 import com.kogaion.digix.entities.Memory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -15,4 +16,8 @@ public interface MemoryServiceContract {
     Memory saveMemory(Memory memory);
 
     List<Memory> getMemoryByType(String extension);
+
+    List<String> getMemoriesForUserId(String userId);
+
+    ResponseEntity<String> deleteMemory(Memory memory);
 }
