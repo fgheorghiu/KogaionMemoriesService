@@ -44,7 +44,6 @@ public class MemoryService implements MemoryServiceContract {
 
         Memory memory = new Memory();
         // memoryRepository.findById(id).get();
-
         return memory;
     }
 
