@@ -46,7 +46,7 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
         super.configure(http);
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/memories*")
+                .antMatchers("/digix*")
                 .hasRole("admin-digix")
                 .anyRequest()
                 .permitAll();

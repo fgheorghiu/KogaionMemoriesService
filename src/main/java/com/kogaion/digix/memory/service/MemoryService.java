@@ -31,10 +31,14 @@ public class MemoryService implements MemoryServiceContract {
     private LocalFileSystemHandlerInterface fileHandlerController;
 
     @Override
-    public Memory uploadMemory(Memory memory) {
+    public Memory uploadMemory(String uploadType, Memory memory) {
 
         memoryRepository.save(memory);
-        fileHandlerController.uploadBase64File(memory);
+
+        if(uploadType.equals(MemoryServiceConstants.BASE64_UPLOAD))
+            fileHandlerController.uploadBase64File(memory);
+        else
+            fileHandlerController.uploadFile(memory);
 
         return memory;
     }

@@ -1,12 +1,17 @@
 package com.kogaion.digix.box.controller;
 
 import com.kogaion.digix.entities.Box;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 public interface BoxControllerInterface {
 
-    public List<Box> getDigitalBoxes();
+    List<Box> getDigitalBoxes(String ownerId);
 
-    public Box getBox(long id);
+//    Box getBox(long id);
+
+    List<String> getBoxContentByName(String ownerId, String boxName);
+
+    Box createBox(String name, String ownerId);
 }

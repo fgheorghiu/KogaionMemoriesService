@@ -9,4 +9,7 @@ public interface FileSystemHandlerInterface {
 
     ResponseEntity<String> uploadBase64File(Memory memory);
 
+    ResponseEntity<String> uploadFile(Memory memory);
+
+    ResponseEntity<String> createUserDirectory(String userId);
 }

@@ -1,6 +1,7 @@
 package com.kogaion.digix.entities;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.io.File;
@@ -20,13 +21,16 @@ public class Memory {
     private String ownerId;
 
     @Transient
-    private File file;
+    private MultipartFile file;
 
     @Transient
     private String base64File;
 
     @Column
     private String filename;
+
+    @Column
+    private String boxName;
 
     public String getFileExtension() {
         return fileExtension;
@@ -52,11 +56,11 @@ public class Memory {
         this.ownerId = ownerId;
     }
 
-    public File getFile() {
+    public MultipartFile getFile() {
         return file;
     }
 
-    public void setFile(File file) {
+    public void setFile(MultipartFile file) {
         this.file = file;
     }
 
@@ -74,5 +78,13 @@ public class Memory {
 
     public void setFilename(String filename) {
         this.filename = filename;
+    }
+
+    public String getBoxName() {
+        return boxName;
+    }
+
+    public void setBoxName(String boxName) {
+        this.boxName = boxName;
     }
 }

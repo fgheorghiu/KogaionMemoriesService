@@ -9,7 +9,7 @@ import java.util.List;
 @Component
 public interface MemoryServiceContract {
 
-    Memory uploadMemory(Memory memory);
+    Memory uploadMemory(String uploadType, Memory memory);
 
     Memory findMemory(long id);
 

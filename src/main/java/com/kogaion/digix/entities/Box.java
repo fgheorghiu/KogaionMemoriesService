@@ -6,7 +6,7 @@ public class Box {
 
     private String name;
     private List<Long> memoriesIds;
-    private long ownerId;
+    private String ownerId;
 
     public String getName() {
         return name;
@@ -24,11 +24,11 @@ public class Box {
         this.memoriesIds = memoriesIds;
     }
 
-    public long getOwnerId() {
+    public String getOwnerId() {
         return ownerId;
     }
 
-    public void setOwnerId(long ownerId) {
+    public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
     }
 }

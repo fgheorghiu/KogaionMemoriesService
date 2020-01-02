@@ -2,11 +2,15 @@ package com.kogaion.digix.memory.controller;
 
 import com.kogaion.digix.entities.Memory;
 import com.kogaion.digix.memory.service.MemoryService;
+import com.kogaion.digix.memory.service.MemoryServiceConstants;
 import com.kogaion.digix.memory.service.MemoryServiceContract;
+import io.swagger.models.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +37,27 @@ public class MemoriesController implements MemoriesControllerInterface {
 
     @RequestMapping(value = "/memories", method = RequestMethod.POST)
     @Override
-    public Memory uploadMemory(@RequestBody Memory memory) {
-        return memoryService.uploadMemory(memory);
+    public ResponseEntity<String> uploadMemory(@RequestParam("file") MultipartFile file,
+                                               @RequestParam("id") long id,
+                                               @RequestParam("ownerId") String ownerId,
+                                               @RequestParam("filename") String filename,
+                                               @RequestParam("fileExtension") String fileExtension,
+                                               @RequestParam("boxName") String boxName) {
+
+        Memory memory = new Memory();
+        memory.setOwnerId(ownerId);
+        memory.setId(id);
+        memory.setFilename(filename);
+        memory.setFileExtension(fileExtension);
+        memory.setFile(file);
+        memory.setBoxName(boxName);
+
+        if(memory.getBoxName() == null || memory.getBoxName().equals(""))
+            return new ResponseEntity<>("Box name not provided", HttpStatus.BAD_REQUEST);
+
+        memoryService.uploadMemory(MemoryServiceConstants.MULTIPART_UPLOAD, memory);
+
+        return new ResponseEntity<>("Memory uploaded", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/memories/{startIndex}/{size}", method = RequestMethod.GET)
